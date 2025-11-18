@@ -35,12 +35,16 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ className = "" }) => {
   return (
     <div className={`w-40 bg-gray-900 text-white min-h-screen ${className}`}>
       {/* Header */}
-      <div className="p-6 border-b border-gray-700">
+      <div className="p-6 border-gray-700">
         <img
           className="w-[130px] h-auto mx-auto"
           src={new URL("./image/logo.png", import.meta.url).href}
           alt="Logo"
         />
+      </div>
+
+      <div className="px-4 ">
+        <div className="border-t border-gray-700"></div>
       </div>
 
       {/* Navigation Menu */}
@@ -58,7 +62,9 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ className = "" }) => {
               >
                 <span
                   className={`${
-                    activeItem === item.id ? "text-[#D9D9D9]" : "text-[#747474] group-hover:text-[#D9D9D9]"
+                    activeItem === item.id
+                      ? "text-[#D9D9D9]"
+                      : "text-[#747474] group-hover:text-[#D9D9D9]"
                   }`}
                 >
                   {item.icon}
