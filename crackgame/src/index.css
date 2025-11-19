@@ -1,9 +1,12 @@
 @import "tailwindcss";
+@import '@fontsource/poppins';
+@import '@fontsource/montserrat';
 
 body {
+  background-color: #111315;
   margin: 0;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Poppins',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Poppins', 'Montserrat',
     sans-serif;
 
 }

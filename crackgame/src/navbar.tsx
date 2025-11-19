@@ -1,6 +1,5 @@
-// SidebarNav.tsx
 import React, { useState } from "react";
-import { LayoutGrid, Layers, Database, Heart, Download, User } from "lucide-react";
+import { LayoutGrid, Layers, Database, Heart, Download, User, CircleAlert, Settings } from "lucide-react";
 
 interface SidebarNavProps {
   className?: string;
@@ -33,8 +32,10 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ className = "" }) => {
     };
 
   return (
-    <div className={`w-40 bg-gray-900 text-white min-h-screen ${className}`}>
-      {/* Header */}
+    <div
+      className={`fixed overflow-y-auto w-40 bg-gray-900 text-white min-h-screen ${className}`}
+    >
+      {/* Logo */}
       <div className="p-6 border-gray-700">
         <img
           className="w-[130px] h-auto mx-auto"
@@ -47,14 +48,14 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ className = "" }) => {
         <div className="border-t border-gray-700"></div>
       </div>
 
-      {/* Navigation Menu */}
+      {/* Mwenu isi */}
       <nav className="p-2">
         <ul className="space-y-1">
           {menuItems.map((item) => (
             <li key={item.id}>
               <button
                 onClick={() => handleItemClick(item.id)}
-                className={`w-full text-sm font-medium text-left px-4 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-3 group ${
+                className={`w-full text-[13px] font-medium text-left px-4 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-3 group ${
                   activeItem === item.id
                     ? "bg-[#323F52] text-[#D9D9D9]"
                     : "text-[#747474] hover:bg-gray-800 hover:text-[#D9D9D9]"
@@ -76,20 +77,21 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ className = "" }) => {
         </ul>
       </nav>
 
-      {/* Divider */}
-      <div className="px-4 mt-23">
+      {/* Pembatas */}
+      <div className="px-4 mt-20">
         <div className="border-t border-gray-700 my-2"></div>
       </div>
 
-      {/* Information Settings Section */}
+      {/* Informasi bawah */}
       <div className="p-2 mt-3">
-        <h3 className="text-[#747474] font-[Poppins,sans-serif] text-sm font-medium px-4 mb-4">
+        <h3 className="text-[#747474] font-[Poppins,sans-serif] text-[13px] font-medium px-4 mb-4">
+          <CircleAlert className="w-5 h-5 inline-block mr-2" />
           Information
         </h3>
-        <h3 className="text-[#747474] font-[Poppins,sans-serif] text-sm font-medium px-4">
+        <h3 className="text-[#747474] font-[Poppins,sans-serif] text-[13px] font-medium px-4">
+          <Settings className="w-5 h-5 inline-block mr-2" />
           Settings
         </h3>
-        {/* Add additional settings items here if needed */}
       </div>
     </div>
   );
