@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { LayoutGrid, Layers, Database, Heart, Download, User, CircleAlert, Settings } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
+
 
 interface SidebarNavProps {
   className?: string;
 }
 
 const SidebarNav: React.FC<SidebarNavProps> = ({ className = "" }) => {
-  const [activeItem, setActiveItem] = useState<string>("Home");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const MenuIcons = {
     home: <LayoutGrid className="w-5 h-5" />,
@@ -19,17 +22,21 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ className = "" }) => {
     
 
   const menuItems = [
-    { id: "home", label: "Home", icon: MenuIcons.home },
-    { id: "category", label: "Category", icon: MenuIcons.category },
-    { id: "bundle", label: "Bundle", icon: MenuIcons.bundle },
-    { id: "wishlist", label: "Wishlist", icon: MenuIcons.wishlist },
-    { id: "downloads", label: "Downloads", icon: MenuIcons.downloads },
-    { id: "contact", label: "Contact", icon: MenuIcons.contact },
+    { id: "home", label: "Home", icon: MenuIcons.home, path: "/" },
+    { id: "category", label: "Category", icon: MenuIcons.category, path: "/category" },
+    { id: "bundle", label: "Bundle", icon: MenuIcons.bundle, path: "/bundle" },
+    { id: "wishlist", label: "Wishlist", icon: MenuIcons.wishlist, path: "/wishlist" },
+    { id: "downloads", label: "Downloads", icon: MenuIcons.downloads, path: "/downloads" },
+    { id: "contact", label: "Contact", icon: MenuIcons.contact, path: "/contact" },
   ];
 
-  const handleItemClick = (itemId: string) => {
-    setActiveItem(itemId);
-    };
+  const handleItemClick = (path: string) => {
+    navigate(path);
+  };
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
 
   return (
     <div
@@ -54,16 +61,16 @@ const SidebarNav: React.FC<SidebarNavProps> = ({ className = "" }) => {
           {menuItems.map((item) => (
             <li key={item.id}>
               <button
-                onClick={() => handleItemClick(item.id)}
+                onClick={() => handleItemClick(item.path)}
                 className={`w-full text-[13px] font-medium text-left px-4 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-3 group ${
-                  activeItem === item.id
+                  isActive(item.path)
                     ? "bg-[#323F52] text-[#D9D9D9]"
                     : "text-[#747474] hover:bg-gray-800 hover:text-[#D9D9D9]"
                 }`}
               >
                 <span
                   className={`${
-                    activeItem === item.id
+                    isActive(item.path)
                       ? "text-[#D9D9D9]"
                       : "text-[#747474] group-hover:text-[#D9D9D9]"
                   }`}

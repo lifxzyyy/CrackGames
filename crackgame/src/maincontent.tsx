@@ -1,11 +1,12 @@
 import React from "react";
 import SearchBar from "./searchbar";
-import { Heart } from "lucide-react";
+import { Heart, ChevronRight, ChevronLeft } from "lucide-react";
 
 const MainContent: React.FC = () => {
   const trendingGames = [
     {
       id: 1,
+      icon: "./src/image/game.png",
       title: "Death Stranding 2",
       description:
         "Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development.",
@@ -13,6 +14,7 @@ const MainContent: React.FC = () => {
     },
     {
       id: 2,
+      icon: "./src/image/game.png",
       title: "Death Stranding 2",
       description:
         "Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development.",
@@ -20,6 +22,7 @@ const MainContent: React.FC = () => {
     },
     {
       id: 3,
+      icon: "./src/image/game.png",
       title: "Death Stranding 2",
       description:
         "Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development.",
@@ -76,11 +79,21 @@ const MainContent: React.FC = () => {
       </div>
 
       {/* tren Now */}
-      <div className=" mb-8">
-        <h2 className="text-2xl font-[Poppins,sans-serif] font-medium text-[#F4F5F9] ">
-          Trending now
-        </h2>
-        <p className="text-[#D9D9D9]">Temukan Game Favoritmu Di xxstore</p>
+      <div className="mb-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-[Poppins,sans-serif] font-bold text-[#F4F5F9] mb-1">
+              Trending now
+            </h2>
+            <p className="text-[#D9D9D9] font-[Poppins,sans-serif]">
+              Temukan Game Favoritmu Di xxstore
+            </p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <ChevronLeft className="w-11 h-11 rounded-sm p-2 bg-[#1F2123] text-[#D9D9D9] cursor-pointer hover:bg-[#2A2B30] transition-colors duration-200" />
+            <ChevronRight className="w-11 h-11 rounded-sm p-2 bg-[#1F2123] text-[#D9D9D9] cursor-pointer hover:bg-[#2A2B30] transition-colors duration-200" />
+          </div>
+        </div>
       </div>
 
       {/* Trending Gamenya */}
@@ -88,19 +101,26 @@ const MainContent: React.FC = () => {
         {trendingGames.map((game) => (
           <div
             key={game.id}
-            className="bg-[#1E1F23] rounded-lg p-6 hover:shadow-lg transition-shadow duration-200"
+            className="bg-[#1E1F23] rounded-lg hover:shadow-lg transition-shadow duration-200"
           >
-            <h3 className="text-[23px] font-[Montserrat,sans-serif] font-medium text-[#F4F5F9] mb-3">
+            <div>
+              <img
+                src={game.icon}
+                alt={game.title}
+                className="w-full p-2 h-60 object-cover rounded-xl"
+              />
+            </div>
+            <h3 className="text-[23px] px-5 font-[Montserrat,sans-serif] font-medium text-[#F4F5F9] mb-1">
               {game.title}
             </h3>
-            <p className="text-[#A1A3A7] font-[Poppins,sans-serif] text-[12px] mb-4 leading-relaxed">
+            <p className="text-[#A1A3A7] px-5 font-[Poppins,sans-serif] text-[12px] mb-4 leading-relaxed">
               {game.description}
             </p>
-            <div className="flex items-center justify-between">
+            <div className="flex px-5 pb-6 items-center justify-between">
               <span className="text-[16px] px-2 font-[Poppins,sans-serif] py-1 rounded-lg bg-[#434547] font-medium text-[#D3D3D3]">
                 {game.price}
               </span>
-              <div className="bg-[#434547] hover:bg-[#747474] p-1.5 rounded-lg transition-colors duration-200 cursor-pointer group">
+              <div className="bg-[#434547] hover:bg-[#747474] p-1.5 px-2 rounded-lg transition-colors duration-200 cursor-pointer group">
                 <Heart className="w-6 h-6 text-[#747474] fill-current hover:text-[#C62D2D] group-hover:text-[#C62D2D]" />
               </div>
             </div>

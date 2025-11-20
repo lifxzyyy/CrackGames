@@ -1,16 +1,22 @@
-import SidebarNav from './navbar'
-import MainContent from './maincontent';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SidebarNav from "./navbar";
+import MainContent from "./maincontent";
+import CategoryContent from "./category";
 
-import './App.css'
+import "./App.css";
 
 function App() {
-
   return (
-    <div className="flex">
-      <SidebarNav />
-      <MainContent />
-    </div>
+    <Router>
+      <div className="flex">
+        <SidebarNav />
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+          <Route path="/category" element={<CategoryContent />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
-export default App
+export default App;
