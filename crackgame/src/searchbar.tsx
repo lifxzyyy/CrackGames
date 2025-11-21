@@ -14,7 +14,7 @@ const SearchBar: React.FC = () => {
         <input
           type="text"
           placeholder="search for the name of the game"
-          className="flex-1 mx-3 py-1 min-w-[788px] text-[15px] text-medium text-white font-[Poppins,sans-serif] placeholder-[#414850] bg-transparent border-none outline-none"
+          className="flex-1 mx-3 py-1 min-w-[800px] text-[15px] text-medium text-white font-[Poppins,sans-serif] placeholder-[#414850] bg-transparent border-none outline-none"
         />
       </div>
       <div className="ml-4 px-4 py-[6px] bg-[#1B1F24] border border-[#C62D2D] rounded-lg shadow-sm cursor-pointer">

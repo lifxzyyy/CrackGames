@@ -28,7 +28,16 @@ const MainContent: React.FC = () => {
         "Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development.",
       price: "Rp. 5.000,00",
     },
+    {
+      id: 4,
+      icon: "./src/image/game.png",
+      title: "Death Stranding 2",
+      description:
+        "Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development.",
+      price: "Rp. 5.000,00",
+    },
   ];
+
 
   return (
     <div className=" ml-40 flex-1 p-8 bg-[#111315] min-h-screen">
@@ -97,7 +106,7 @@ const MainContent: React.FC = () => {
       </div>
 
       {/* Trending Gamenya */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {trendingGames.map((game) => (
           <div
             key={game.id}
@@ -107,21 +116,21 @@ const MainContent: React.FC = () => {
               <img
                 src={game.icon}
                 alt={game.title}
-                className="w-full p-2 h-60 object-cover rounded-xl"
+                className="w-full p-2 h-50 object-cover rounded-xl"
               />
             </div>
-            <h3 className="text-[23px] px-5 font-[Montserrat,sans-serif] font-medium text-[#F4F5F9] mb-1">
+            <h3 className="text-[20px] px-4 font-[Montserrat,sans-serif] font-medium text-[#F4F5F9] mb-1">
               {game.title}
             </h3>
-            <p className="text-[#A1A3A7] px-5 font-[Poppins,sans-serif] text-[12px] mb-4 leading-relaxed">
+            <p className="text-[#A1A3A7] px-4 font-[Poppins,sans-serif] text-[9px] mb-4 leading-relaxed">
               {game.description}
             </p>
-            <div className="flex px-5 pb-6 items-center justify-between">
-              <span className="text-[16px] px-2 font-[Poppins,sans-serif] py-1 rounded-lg bg-[#434547] font-medium text-[#D3D3D3]">
+            <div className="flex px-4 pb-4 items-center justify-between">
+              <span className="text-[15px] px-2 font-[Poppins,sans-serif] py-1 rounded-sm bg-[#434547] font-medium text-[#D3D3D3]">
                 {game.price}
               </span>
-              <div className="bg-[#434547] hover:bg-[#747474] p-1.5 px-2 rounded-lg transition-colors duration-200 cursor-pointer group">
-                <Heart className="w-6 h-6 text-[#747474] fill-current hover:text-[#C62D2D] group-hover:text-[#C62D2D]" />
+              <div className="bg-[#434547] hover:bg-[#747474] p-1.5 px-2 rounded-sm transition-colors duration-200 cursor-pointer group">
+                <Heart className="w-5 h-5 text-[#747474] fill-current hover:text-[#C62D2D] group-hover:text-[#C62D2D]" />
               </div>
             </div>
           </div>

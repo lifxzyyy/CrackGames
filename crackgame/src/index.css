@@ -11,6 +11,11 @@ body {
 
 }
 
+html, body {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;   
+}
+
 nav {
     font-family: 'Poppins', sans-serif;
 }
