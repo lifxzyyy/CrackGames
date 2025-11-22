@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SidebarNav from "./navbar";
 import MainContent from "./maincontent";
 import CategoryContent from "./category";
+import BundlesContent from "./bundle";
 
 import "./App.css";
 
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/category" element={<CategoryContent />} />
+          <Route path="/bundle" element={<BundlesContent />} />
         </Routes>
       </div>
     </Router>
