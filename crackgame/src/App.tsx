@@ -1,23 +1,28 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SidebarNav from "./navbar";
+import { WishlistProvider } from "./context/wishlistcontext";
 import MainContent from "./maincontent";
 import CategoryContent from "./category";
 import BundlesContent from "./bundle";
+import WishlistPage from "./wishlist";
 
 import "./App.css";
 
 function App() {
   return (
-    <Router>
-      <div className="flex overflow-y-auto scrollbar-hide">
-        <SidebarNav />
-        <Routes>
-          <Route path="/" element={<MainContent />} />
-          <Route path="/category" element={<CategoryContent />} />
-          <Route path="/bundle" element={<BundlesContent />} />
-        </Routes>
-      </div>
-    </Router>
+    <WishlistProvider>
+      <Router>
+        <div className="flex overflow-y-auto scrollbar-hide">
+          <SidebarNav />
+          <Routes>
+            <Route path="/" element={<MainContent />} />
+            <Route path="/category" element={<CategoryContent />} />
+            <Route path="/bundle" element={<BundlesContent />} />
+            <Route path="/wishlist" element={<WishlistPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </WishlistProvider>
   );
 }
 

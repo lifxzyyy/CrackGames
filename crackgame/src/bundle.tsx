@@ -1,39 +1,35 @@
 import React from "react";
 import SearchBar from "./searchbar";
-import { Heart } from "lucide-react";
+import WishlistButton from "./component/wishlistbutton";
 const BundlesContent: React.FC = () => {
   const bundlesGames = [
     {
-      id: 1,
+      id: 9,
       icon: "./src/image/bundle.png",
       title: "Promo 3 Games",
       games: ["Raft 2", "Raft 2", "Raft 2"],
       price: "Rp. 10.000,00",
-      discount: "50% OFF",
     },
     {
-      id: 2,
+      id: 10,
       icon: "./src/image/bundle.png",
       title: "Promo 3 Games",
       games: ["Raft 2", "Raft 2", "Raft 2"],
       price: "Rp. 10.000,00",
-      discount: "50% OFF",
     },
     {
-      id: 3,
+      id: 11,
       icon: "./src/image/bundle.png",
       title: "Promo 3 Games",
       games: ["Raft 2", "Raft 2", "Raft 2"],
       price: "Rp. 10.000,00",
-      discount: "50% OFF",
     },
     {
-      id: 4,
+      id: 12,
       icon: "./src/image/bundle.png",
       title: "Promo 3 Games",
       games: ["Raft 2", "Raft 2", "Raft 2"],
       price: "Rp. 10.000,00",
-      discount: "50% OFF",
     },
   ];
   return (
@@ -56,9 +52,9 @@ const BundlesContent: React.FC = () => {
 
       {/* Promo Bundles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {bundlesGames.map((game) => (
+        {bundlesGames.map((bundle) => (
           <div
-            key={game.id}
+            key={bundle.id}
             className="bg-[#1E1F23] rounded-lg hover:shadow-lg transition-shadow duration-200 relative"
           >
             {/* Promo Badge */}
@@ -75,16 +71,16 @@ const BundlesContent: React.FC = () => {
 
             <div>
               <img
-                src={game.icon}
-                alt={game.title}
+                src={bundle.icon}
+                alt={bundle.title}
                 className="w-full p-2 h-50 object-cover rounded-xl"
               />
             </div>
             <h3 className="text-[20px] px-4 font-[Montserrat,sans-serif] font-medium text-[#F4F5F9] mb-1">
-              {game.title}
+              {bundle.title}
             </h3>
             <ul className="space-y-2 mb-4">
-              {game.games.map((game, index) => (
+              {bundle.games.map((game, index) => (
                 <li
                   key={index}
                   className="flex px-4 text-[10px] items-center text-[#D9D9D9] font-[Poppins,sans-serif]"
@@ -96,11 +92,19 @@ const BundlesContent: React.FC = () => {
             </ul>
             <div className="flex px-4 pb-4 items-center justify-between">
               <span className="text-[15px] px-2 font-[Poppins,sans-serif] py-1 rounded-sm bg-[#434547] font-medium text-[#D3D3D3]">
-                {game.price}
+                {bundle.price}
               </span>
-              <div className="bg-[#434547] hover:bg-[#747474] p-1.5 px-2 rounded-sm transition-colors duration-200 cursor-pointer group">
-                <Heart className="w-5 h-5 text-[#747474] fill-current hover:text-[#C62D2D] group-hover:text-[#C62D2D]" />
-              </div>
+              <WishlistButton
+                game={{
+                  id: bundle.id,
+                  title: bundle.title,
+                  description: "",
+                  games: bundle.games,
+                  price: bundle.price,
+                  icon: bundle.icon,
+                }}
+                size="sm"
+              />
             </div>
           </div>
         ))}

@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "./searchbar";
-import { Heart } from "lucide-react";
+import WishlistButton from "./component/wishlistbutton";
 
 const CategoryContent: React.FC = () => {
   const categoryGames = [
@@ -152,9 +152,7 @@ const CategoryContent: React.FC = () => {
               <span className="text-[15px] px-2 font-[Poppins,sans-serif] py-1 rounded-sm bg-[#434547] font-medium text-[#D3D3D3]">
                 {game.price}
               </span>
-              <div className="bg-[#434547] hover:bg-[#747474] p-1.5 px-2 rounded-sm transition-colors duration-200 cursor-pointer group">
-                <Heart className="w-5 h-5 text-[#747474] fill-current hover:text-[#C62D2D] group-hover:text-[#C62D2D]" />
-              </div>
+              <WishlistButton game={game} size="sm" />
             </div>
           </div>
         ))}
