@@ -1,11 +1,12 @@
 import React from "react";
 import SearchBar from "./searchbar";
+import WishlistButton from "./component/wishlistbutton";
 import { Heart, ChevronRight, ChevronLeft } from "lucide-react";
 
 const MainContent: React.FC = () => {
   const trendingGames = [
     {
-      id: 1,
+      id: 13,
       icon: "./src/image/game.png",
       title: "Death Stranding 2",
       description:
@@ -13,7 +14,7 @@ const MainContent: React.FC = () => {
       price: "Rp. 5.000,00",
     },
     {
-      id: 2,
+      id: 14,
       icon: "./src/image/game.png",
       title: "Death Stranding 2",
       description:
@@ -21,7 +22,7 @@ const MainContent: React.FC = () => {
       price: "Rp. 5.000,00",
     },
     {
-      id: 3,
+      id: 15,
       icon: "./src/image/game.png",
       title: "Death Stranding 2",
       description:
@@ -29,7 +30,7 @@ const MainContent: React.FC = () => {
       price: "Rp. 5.000,00",
     },
     {
-      id: 4,
+      id: 16,
       icon: "./src/image/game.png",
       title: "Death Stranding 2",
       description:
@@ -129,9 +130,7 @@ const MainContent: React.FC = () => {
               <span className="text-[15px] px-2 font-[Poppins,sans-serif] py-1 rounded-sm bg-[#434547] font-medium text-[#D3D3D3]">
                 {game.price}
               </span>
-              <div className="bg-[#434547] hover:bg-[#747474] p-1.5 px-2 rounded-sm transition-colors duration-200 cursor-pointer group">
-                <Heart className="w-5 h-5 text-[#747474] fill-current hover:text-[#C62D2D] group-hover:text-[#C62D2D]" />
-              </div>
+              <WishlistButton game={game} size="sm" />
             </div>
           </div>
         ))}
