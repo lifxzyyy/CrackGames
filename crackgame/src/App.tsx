@@ -5,6 +5,7 @@ import MainContent from "./maincontent";
 import CategoryContent from "./category";
 import BundlesContent from "./bundle";
 import WishlistPage from "./wishlist";
+import DownloadsPage from "./donwload";
 
 import "./App.css";
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/category" element={<CategoryContent />} />
             <Route path="/bundle" element={<BundlesContent />} />
             <Route path="/wishlist" element={<WishlistPage />} />
+            <Route path="/downloads" element={<DownloadsPage />} />
           </Routes>
         </div>
       </Router>
